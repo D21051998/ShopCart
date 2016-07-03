@@ -12,6 +12,11 @@
 		<org.springframework-version>4.3.0.RELEASE</org.springframework-version>
 	</properties>
   <dependencies>
+  <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>3.0.5.RELEASE</version>
+	</dependency>
     
     <!-- Spring -->
 		<dependency>
@@ -50,7 +55,13 @@
     		<artifactId>mysql-connector-java</artifactId>
     		<version>5.1.30</version>		
 		</dependency> 
-    
+ <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+<dependency>
+    <groupId>commons-logging</groupId>
+    <artifactId>commons-logging</artifactId>
+    <version>1.1.1</version>
+</dependency>
+ 
   </dependencies>
   <build>
     <finalName>BackEnd</finalName>

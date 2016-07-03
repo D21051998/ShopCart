@@ -18,6 +18,8 @@ public class User {
 	@Column(name="id")
 	private String id;
 	private String password;
+	@Column(name = "admin")
+	private boolean isAdmin;
 	public String getId() {
 		return id;
 	}
@@ -36,6 +38,5 @@ public class User {
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
-	@Column(name = "admin")
-	private boolean isAdmin;
+	
 }
