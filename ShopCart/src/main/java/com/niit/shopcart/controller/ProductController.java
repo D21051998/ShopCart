@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ProductController {
 	@RequestMapping("/product")
-	public ModelAndView showIndex(){
+	public ModelAndView showProduct(){
 		ModelAndView mv = new ModelAndView("/product");
 		return mv;
 	}

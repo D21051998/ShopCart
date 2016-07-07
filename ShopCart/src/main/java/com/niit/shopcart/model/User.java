@@ -1,7 +1,6 @@
 package com.niit.shopcart.model;
 
 import javax.persistence.*;
-
 import org.springframework.stereotype.Component;
 
 @Entity

@@ -116,16 +116,30 @@ h3, h4 {
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="/ShopCart/" target="_self">Home</a></li>
-				<li><a href="product" target="_self">Products</a></li>
+				<li class="dropdown"><a href="#" role="button" class="dropdown-toggle"
+					data-toggle="dropdown" target="_self">Products<span
+						class="caret"></span></a>
+				<ul class="dropdown-menu text-center">
+				<li><font color="#000000">&nbsp;Choose From:</font></li>
+				<li class="divider" role="seperator"></li>
+				<li><a href="<c:url value='category/view/All'/> "><font color="#555555">All&nbsp;<span class="glyphicon glyphicon-menu-right"></span></font></a></li>
+				<li class="divider" role="seperator"></li>
+					<c:forEach items="${categoryList}" var="category">
+                       
+						<li><a href="<c:url value='category/view/${category.name}' />"><font color="#555555">${category.name}&nbsp;<span class="glyphicon glyphicon-menu-right"></span></font></a></li>
+
+						</c:forEach>
+				</ul>
 				<li><a href="about" target="_self">About</a></li>
 				<li><a href="contact" target="_self">Contact Us</a></li>
 
-			</ul>
+			</ul></li>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="signup"><span class="glyphicon glyphicon-user"></span>
 						Sign Up</a></li>
 				<li><a href="signin"><span
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
 			</ul>
 		</div>
 	</div>
@@ -248,10 +262,8 @@ h3, h4 {
 	<font color="black">
 		<center>
 			<h2>
-				All <strong>Titles</strong><br>
-				<strong>One</strong> Location<br>
-				<br>
-				<b>#GameOn</b>
+				All <strong>Titles</strong><br> <strong>One</strong> Location<br>
+				<br> <b>#GameOn</b>
 			</h2>
 		</center> <br>
 		<div class="row">
@@ -275,26 +287,26 @@ h3, h4 {
 					<strong>Mafia 2, Hidden & Dangerous, VietCong 2.</strong>
 				</h5>
 			</div>
-			
+
 			<div class="col-md-4">
-		
-			
-			
+
+
+
 				<h3>
 					<b>Ubisoft</b>
 				</h3>
-				<a href="product">
-				<img class="img-thumbnail" src="${z}/wg2.jpg" alt="Battlefield 4"
-					width="300" height="400" /></a>
+				<a href="product"> <img class="img-thumbnail" src="${z}/wg2.jpg"
+					alt="Battlefield 4" width="300" height="400" /></a>
 				<h5>
 					<strong>WatchDogs 2, Assassins Creed, Far Cry, and more.</strong>
 				</h5>
-				 
+
 			</div>
-			
+
 		</div>
 	</font>
 	<hr>
+	
 	<footer align="right">
 		<p>
 			<font color="#555555">Email us at: admin@mycorp.com | Contact

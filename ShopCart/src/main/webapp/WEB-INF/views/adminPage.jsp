@@ -8,6 +8,7 @@
 </head>
 <body>
 <h3>Admin Panel</h3>
-<h3>Category : <a href="category">View</a></h3>
+<h3>Category : <a href="category">View</a></h3><br>
+<h3>Supplier: <a href="supplier">View</a></h3>
 </body>
 </html>
