@@ -31,4 +31,11 @@ public class UserController {
 		}
 		
 	}
+	
+	@RequestMapping("/adminPage")
+	public ModelAndView showAdmin(){
+		ModelAndView mv = new ModelAndView("adminPage");
+		return mv;
+	}
+	
 }

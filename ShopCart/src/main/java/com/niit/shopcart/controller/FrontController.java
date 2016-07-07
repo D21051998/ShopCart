@@ -43,7 +43,11 @@ public class FrontController {
 		ModelAndView mv = new ModelAndView("/contact");
 		return mv;
 	}
-	
+	@RequestMapping("/secureLogin")
+	public ModelAndView secureLogin(){
+		ModelAndView mv = new ModelAndView("/secureLogin");
+		return mv;
+	}
 
 	
 	
