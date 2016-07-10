@@ -29,6 +29,14 @@ public class CategoryController {
 		return "category";
 	}
 	
+	@RequestMapping(value="/category/view/allCategory",method=RequestMethod.GET)
+	public String showAllC(Model model){
+		System.out.println("list category");
+		model.addAttribute("category", new Category());
+		model.addAttribute("categoryList",this.categoryImpl.list());
+		return "ShowAllC";
+	}
+	
 	@RequestMapping(value="/category/add",method=RequestMethod.POST)
 	public String addCategory(@ModelAttribute("category") Category category){
 		System.out.println("add category");

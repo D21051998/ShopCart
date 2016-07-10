@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form method="post">
+<form method="post" >
 <input type="text" name="name" placeholder="UserName"/>
 <input type="password" name="password" placeholder="Password"/>
 <input type="submit" name="submit" value="Submit"/>

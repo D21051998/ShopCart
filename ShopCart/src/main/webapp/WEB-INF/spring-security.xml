@@ -9,7 +9,7 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/isValidUser" access="hasRole('ROLE_ADMIN')"/>
-		<form-login default-target-url="/adminPage"/>
+		<form-login default-target-url="/adminPage" />
 		<logout logout-success-url="/ShopCart/"/>
 	</http>
 	<authentication-manager>
@@ -19,5 +19,4 @@
 	    </user-service>
 	  </authentication-provider>
 	</authentication-manager>
-
 </beans:beans>
