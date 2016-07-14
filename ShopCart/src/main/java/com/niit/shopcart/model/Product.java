@@ -1,19 +1,33 @@
 package com.niit.shopcart.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="product")
 @Component
 public class Product {
+	
 	@Id
 	private String id;
+	
+	@NotNull
 	private String name;
+	
+	@NotBlank
+	@Size(min=5, message="Description should be greater than 5 characters")
 	private String description;
+	
+	@Min(value=0)
 	private double price;
+	
+	@NotNull
 	private String category_id;
+	
+	@NotNull
 	private String supplier_id;
 	public String getId() {
 		return id;

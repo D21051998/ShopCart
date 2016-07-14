@@ -1,6 +1,8 @@
 com\niit\shopcart\controller\ProductController.class
 com\niit\shopcart\dao\SupplierImpl.class
+com\niit\shopcart\model\Product.class
 com\niit\shopcart\model\Supplier.class
+com\niit\shopcart\dao\ProductDao.class
 com\niit\shopcart\dao\CategoryDao.class
 com\niit\shopcart\model\User.class
 com\niit\shopcart\controller\FrontController.class
@@ -8,6 +10,7 @@ com\niit\shopcart\dao\SupplierDao.class
 com\niit\shopcart\dao\UserDao.class
 com\niit\shopcart\model\Category.class
 com\niit\shopcart\dao\UserImpl.class
+com\niit\shopcart\dao\ProductImpl.class
 com\niit\shopcart\controller\CategoryController.class
 com\niit\shopcart\controller\SupplierController.class
 com\niit\shopcart\dao\CategoryImpl.class

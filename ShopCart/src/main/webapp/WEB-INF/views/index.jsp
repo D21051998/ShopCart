@@ -20,6 +20,7 @@
 	font: 20px Montserrat, sans-serif;
 	line-height: 1.8;
 	color: #f5f6f7;
+	max-height:800px !important;
 }
 
 .margin {

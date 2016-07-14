@@ -1,6 +1,9 @@
 package com.niit.shopcart.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -10,8 +13,14 @@ public class Supplier {
 	
 	@Id
 	private String id;
+	
+	@Size(min=5, max=15, message="Enter Name between 5 to 15 characters")
 	private String name;
+	
+	@NotEmpty
 	private String address;
+	
+	
 	public String getId() {
 		return id;
 	}

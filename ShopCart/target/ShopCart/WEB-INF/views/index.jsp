@@ -122,7 +122,7 @@ h3, h4 {
 				<ul class="dropdown-menu text-center">
 				<li><font color="#000000">&nbsp;Choose From:</font></li>
 				<li class="divider" role="seperator"></li>
-				<li><a href="<c:url value='category/view/All'/> "><font color="#555555">All&nbsp;<span class="glyphicon glyphicon-menu-right"></span></font></a></li>
+				<li><a href="<c:url value='product/view/all'/> "><font color="#555555">All&nbsp;<span class="glyphicon glyphicon-menu-right"></span></font></a></li>
 				<li class="divider" role="seperator"></li>
 					<c:forEach items="${categoryList}" var="category">
                        
@@ -295,7 +295,7 @@ h3, h4 {
 				<h3>
 					<b>Ubisoft</b>
 				</h3>
-				<a href="product"> <img class="img-thumbnail" src="${z}/wg2.jpg"
+				<a href="product/view/all"> <img class="img-thumbnail" src="${z}/wg2.jpg"
 					alt="Battlefield 4" width="300" height="400" /></a>
 				<h5>
 					<strong>WatchDogs 2, Assassins Creed, Far Cry, and more.</strong>

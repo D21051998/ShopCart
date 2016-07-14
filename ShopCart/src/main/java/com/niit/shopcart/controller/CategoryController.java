@@ -1,6 +1,7 @@
 package com.niit.shopcart.controller;
 
 import java.util.ArrayList;
+import org.apache.log4j.*;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,14 @@ public class CategoryController {
 	
 	@Autowired
 	private CategoryImpl categoryImpl;
-		
+	
 	@RequestMapping(value="/category",method=RequestMethod.GET)
 	public String listCategory(Model model){
-		System.out.println("list category");
+
 		model.addAttribute("category", new Category());
 		model.addAttribute("categoryList",this.categoryImpl.list());
 		return "category";
 	}
-	
 	@RequestMapping(value="/category/view/allCategory",method=RequestMethod.GET)
 	public String showAllC(Model model){
 		System.out.println("list category");

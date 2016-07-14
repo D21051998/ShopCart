@@ -9,14 +9,16 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<c:url value="/resources/images" var="z"></c:url>
+<title>Category CRUD</title>
+<link rel="icon" href="${z}/edit.png" type="image/x-icon">
 <style>
 .container-fluid{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}
 .tg {
@@ -105,6 +107,39 @@ body {
   margin-top: 0;
 }
 
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+	font-weight: normal;
+}
+
+.form-signin .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+
+.form-signin input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
 
 /*
  * Placeholder dashboard ideas
@@ -125,36 +160,8 @@ body {
   border-radius: 50%;
 }
 
-.tg td {
-	font-family: Arial, sans-serif;
-	font-size: 14px;
-	padding: 10px 5px;
-	border-style: solid;
-	border-width: 1px;
-	overflow: hidden;
-	word-break: normal;
-	border-color: #ccc;
-	color: #333;
-	background-color: #fff;
-}
 
-.tg th {
-	font-family: Arial, sans-serif;
-	font-size: 14px;
-	font-weight: normal;
-	padding: 10px 5px;
-	border-style: solid;
-	border-width: 1px;
-	overflow: hidden;
-	word-break: normal;
-	border-color: #ccc;
-	color: #333;
-	background-color: #f0f0f0;
-}
 
-.tg .tg-4eph {
-	background-color: #f9f9f9
-}
 .navbar {
 	padding-top: 7px;
 	padding-bottom: 15px;
@@ -196,55 +203,75 @@ body {
 			</ul>
 		</div>
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
-		<div class="container text-center">
+		<div class="container">
    
 	<h1>Add a Category</h1>
 	<c:url var="addAction" value="/category/add"></c:url>
-	<form:form action="${addAction}" commandName="category">
-		<table>
+	<form:form class="form-signin" action="${addAction}" commandName="category">
+		<table class="table">
 			<tr>
+			<div class="form-group">
 				<td><form:label path="id">
 						<spring:message text="ID" />
 					</form:label></td>
 				<c:choose>
 					<c:when test="${!empty category.id}">
-						<td><form:input path="id" disabled="true" readonly="true" />
+						<td class="form-group">
+						<form:input path="id" disabled="true" readonly="true" class="form-control"
+										style="width:250px !important;"/>
 						</td>
 					</c:when>
 					<c:otherwise>
 						<td><form:input path="id" pattern=".{4,7}" required="true"
-								title="id should contain 6 ti 7 characters" /></td>
+								title="id should contain 6 ti 7 characters" class="form-control"
+										style="width:250px !important;"/></td>
+						<td><form:errors path="id" cssClass="error" /></td>
 					</c:otherwise>
 				</c:choose>
+				</div>
 			</tr>
 			<tr>
-				<form:input path="id" hidden="true" />
+			<div class="form-group">
+				<form:input path="name" hidden="true" />
 				<td><form:label path="name">
-						<spring:message text="name"></spring:message>
+						<spring:message text="Name"></spring:message>
 					</form:label></td>
-				<td><form:input path="name" required="true" /></td>
+				<td><form:input path="name" required="true" class="form-control"
+										style="width:250px !important;"/>
+				</td>
+				<td><form:errors path="name" cssClass="error" /></td>
+				</div>
 			</tr>
 			<tr>
+			<div class="form-group">
 				<td><form:label path="description">
 						<spring:message text="Description" />
 					</form:label></td>
-				<td><form:input path="description" required="true" /></td>
+				<td><form:input path="description" required="true" class="form-control"
+										style="width:250px !important;"/></td>
+			<td><form:errors path="description" cssClass="error" /></td>
+			</div>
 			</tr>
 			<tr>
+			<div class="form-group">
 				<td colspan="2"><c:if test="${!empty category.name}">
 						<input type="submit"
-							value="<spring:message text="Edit Category"/>" />
+							value="<spring:message text="Edit Category"/>" class="btn btn-default"
+										style="width:250px !important;"/>
 					</c:if> <c:if test="${empty category.name}">
-						<input type="submit" value="<spring:message text="Add Category"/>" />
+						<input type="submit" value="<spring:message text="Add Category"/>" class="btn btn-default"
+										style="width:250px !important;"/>
 					</c:if></td>
+					</div>
 			</tr>
 		</table>
 	</form:form>
 	<br>
 	<h3>Category List</h3>
 	<c:if test="${!empty categoryList}">
-			<div class="table-responsive text-center">
-				<table border="1"  class="table table-striped text-center">
+			<div class="table-responsive ">
+				<table  class="table table-striped">
+				<thead>
 					<tr>
 						<th>Category ID</th>
 						<th>Category Name</th>
@@ -253,7 +280,9 @@ body {
 						<th>Delete</th>
 
 					</tr>
+					</thead>
 					<c:forEach items="${categoryList}" var="category">
+						<tbody>
 						<tr>
 							<td>${category.id}</td>
 							<td>${category.name}</td>
@@ -261,6 +290,7 @@ body {
 							<td><a href="<c:url value='category/edit/${category.id}' />">Edit</a></td>
 							<td><a href="<c:url value='category/remove/${category.id}' />">Delete</a></td>
 						</tr>
+						</tbody>
 					</c:forEach>
 				</table>
 			</div>

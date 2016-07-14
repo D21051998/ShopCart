@@ -8,7 +8,9 @@
 	http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/signup" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/isValidUser" access="hasRole('ROLE_ADMIN')"/>
+		<form-login default-target-url="/adminPage" />
+		<logout logout-success-url="/ShopCart/"/>
 	</http>
 	<authentication-manager>
 	  <authentication-provider>
@@ -17,5 +19,4 @@
 	    </user-service>
 	  </authentication-provider>
 	</authentication-manager>
-
 </beans:beans>

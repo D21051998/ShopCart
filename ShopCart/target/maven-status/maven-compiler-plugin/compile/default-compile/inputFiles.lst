@@ -1,5 +1,6 @@
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\controller\SupplierController.java
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\dao\SupplierDao.java
+C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\model\Product.java
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\dao\SupplierImpl.java
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\dao\UserDao.java
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\controller\UserController.java
@@ -9,6 +10,8 @@ C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\model\S
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\dao\UserImpl.java
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\model\Category.java
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\model\User.java
+C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\dao\ProductImpl.java
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\controller\FrontController.java
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\controller\ProductController.java
+C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\dao\ProductDao.java
 C:\Users\Deepanshu\git\ShopCart\ShopCart\src\main\java\com\niit\shopcart\controller\CategoryController.java
