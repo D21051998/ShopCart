@@ -164,11 +164,15 @@ body {
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
 		<div class="container text-center">
 		<h1>Admin Home</h1>
-		</div>
-		</div>
-		</div>
+
 		
- 
+		<%-- <c:if test="${empty userDetail}">No DATA</c:if>
+		<c:if test="${!empty userDetail}">Got DATA</c:if>
+ --%>
+		<h2><center>Welcome User:${userDetail}</center></h2>
+		</div>
+		</div>
+		</div>
  
 </body>
 </html>

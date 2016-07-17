@@ -48,7 +48,15 @@ public class FrontController {
 		ModelAndView mv = new ModelAndView("/secureLogin");
 		return mv;
 	}
-
 	
+	@RequestMapping("/loginError")
+	public ModelAndView showErrorPage(){
+		ModelAndView mv = new ModelAndView("/loginError");
+		return mv;
+	}
 	
+	@RequestMapping("/payment")
+	public String payMe(){
+		return "payment";
+	}
 }

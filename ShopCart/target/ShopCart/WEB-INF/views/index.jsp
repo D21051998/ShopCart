@@ -20,6 +20,7 @@
 	font: 20px Montserrat, sans-serif;
 	line-height: 1.8;
 	color: #f5f6f7;
+	max-height:800px !important;
 }
 
 .margin {
@@ -139,7 +140,6 @@ h3, h4 {
 						Sign Up</a></li>
 				<li><a href="signin"><span
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>
-
 			</ul>
 		</div>
 	</div>
@@ -289,9 +289,6 @@ h3, h4 {
 			</div>
 
 			<div class="col-md-4">
-
-
-
 				<h3>
 					<b>Ubisoft</b>
 				</h3>

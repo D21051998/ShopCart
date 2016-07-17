@@ -15,6 +15,8 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<c:url value="/resources/images" var="z"></c:url>
+<link rel="icon" href="${z}/edit.png" type="image/x-icon">
 <title>Supplier CRUD</title>
 <style>
 .tg {
@@ -115,6 +117,41 @@ body {
 .placeholders h4 {
   margin-bottom: 0;
 }
+
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+	font-weight: normal;
+}
+
+.form-signin .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+
+.form-signin input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
 .placeholder {
   margin-bottom: 20px;
 }
@@ -181,6 +218,7 @@ body {
 		</div>
 	</div>
 </nav>
+<div class="container-fluid">
  <div class="row">
 		<div class="col-sm-3 col-md-2 sidebar">
 			<ul class="nav nav-sidebar">
@@ -194,60 +232,78 @@ body {
 			</ul>
 		</div>
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
-		<div class="container text-center">
+		<div class="container">
    
 	<h1>Add a Supplier</h1>
 	<div class="container">
 		<c:url var="addAction" value="/supplier/add"></c:url>
-		<form:form action="${addAction}" commandName="supplier">
-			<table>
+		<form:form action="${addAction}" class="form-signin" commandName="supplier">
+			<table class="table">
 				<tr>
+				<div class="form-group">
 					<td><form:label path="id">
 							<spring:message text="ID" />
 						</form:label></td>
 					<c:choose>
 						<c:when test="${!empty supplier.id}">
 							<td><form:input path="id" pattern=".{3,6}" disabled="true"
-									readonly="true" title="id should contain 3 to 6 characters" />
+									readonly="true" title="id should contain 3 to 6 characters" class="form-control"
+										style="width:250px !important;"/>
 							</td>
+							
 						</c:when>
 						<c:otherwise>
 							<td><form:input path="id" pattern=".{3,6}" required="true"
-									title="id should contain 3 to 6 characters" /></td>
+									title="id should contain 3 to 6 characters" class="form-control"
+										style="width:250px !important;"/></td>
+									<td><form:errors path="id" cssClass="error" /></td>
 						</c:otherwise>
 					</c:choose>
+					</div>
 				</tr>
 				<tr>
+				<div class="form-group">
 					<form:input path="id" hidden="true" />
 					<td><form:label path="name">
-							<spring:message text="name">
+							<spring:message text="Name">
 							</spring:message>
 						</form:label></td>
-					<td><form:input path="name" required="true" /></td>
-
+					<td><form:input path="name" required="true" class="form-control"
+										style="width:250px !important;"/></td>
+					<td><form:errors path="name" cssClass="error" /></td>
+					</div>
 				</tr>
 				<tr>
+				<div class="form-group">
 					<td><form:label path="address">
-							<spring:message text="address">
+							<spring:message text="Address">
 							</spring:message>
 						</form:label></td>
-					<td><form:input path="address" required="true" /></td>
+					<td><form:input path="address" required="true" class="form-control"
+										style="width:250px !important;"/></td>
+					<td><form:errors path="address" cssClass="error" /></td>
+				</div>
 				</tr>
 				<tr>
+				<div class="form-group">
 					<td colspan="2"><c:if test="${!empty supplier.name}">
 							<input type="submit"
-								value="<spring:message text="Edit Supplier"/>" />
+								value="<spring:message text="Edit Supplier"/>" class="btn btn-default"
+										style="width:250px !important;"/>
 						</c:if> <c:if test="${empty supplier.name}">
 							<input type="submit"
-								value="<spring:message text="Add Supplier"/>" />
+								value="<spring:message text="Add Supplier"/>" class="btn btn-default"
+										style="width:250px !important;"/>
 						</c:if></td>
+						</div>
 				</tr>
 			</table>
 		</form:form>
-		<h3>Category List</h3>
+		<h3>Supplier List</h3>
 		<c:if test="${!empty supplierList}">
-			<div class="table-responsive text-center">
-				<table border="1" class="table text-center">
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
 					<tr>
 						<th>Supplier ID</th>
 						<th>Supplier Name</th>
@@ -255,7 +311,9 @@ body {
 						<th>Edit</th>
 						<th>Delete</th>
 					</tr>
+					</thead>
 					<c:forEach items="${supplierList}" var="supplier">
+						<tbody>
 						<tr>
 							<td>${supplier.id}</td>
 							<td>${supplier.name}</td>
@@ -264,6 +322,7 @@ body {
 							<td><a
 								href="<c:url value='supplier/remove/${supplier.id}' />">Delete</a></td>
 						</tr>
+						</tbody>
 					</c:forEach>
 				</table>
 			</div>
@@ -271,5 +330,6 @@ body {
 	</c:if>
 	</div>
 </div></div>
+</div>
 </body>
 </html>

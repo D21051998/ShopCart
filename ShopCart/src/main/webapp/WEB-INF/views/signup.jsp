@@ -1,3 +1,7 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@page isELIgnored="false"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +14,7 @@
     <link href="jumbotron.css" rel="stylesheet">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <title>MyCorp Inc.</title>
+    <c:url value="/resources/images" var="z"></c:url>
     <link rel="icon" href="C:\Users\Deepanshu\Desktop\mobile.ico" type="image/x-icon">
     <style type="text/css">
     	 .navbar-default .navbar-toggle {
@@ -24,6 +29,45 @@
       font-size: 12px;
       letter-spacing: 2px;
   }
+  /* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
   h1 {
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 	font-size: 35px;
@@ -68,7 +112,7 @@ h4 {
 	<div class="row">
 	        <div class="col-md-1"></div>
 			<div class="col-md-4">
-			<br><br><br><br><br><br>
+			<br><br>
 			    <h2><strong>Create One Account</strong></h2>
 			    <h3>And Become Pro Gamer.</h3>
 			    <br>
@@ -83,71 +127,21 @@ h4 {
 				<div class="row">
 					<div class="col-md-1"></div>
 					<dir class="col-md-7">
+					<br><br><br>
 					<h2><strong> Fill In Your Details. </strong></h2>
 						<form:form action="register" method="post">
 							<div class="form-group">
-							    <label for="fName">First Name:</label>
-								<input type="text" class="form-control" name="fName">
+							    <label for="fName">Full Name</label>
+								<input type="text" class="form-control" name="name">
+							</div>
+							
+							<div class="form-group">
+								<label for="username">User Name</label>
+								<input type="text" class="form-control" name="username">
 							</div>
 							<div class="form-group">
-							    <label for="lName">Last Name:</label>
-								<input type="text" class="form-control" name="lName">
-							</div>
-							<div class="form-group">
-								<label for="dob">Date Of Birth:</label>
-								<input type="date" class="form-control" name="dob">
-							</div>
-							<div class="form-group">
-							    <label for="place">City:</label>
-								<select class="form-control" name="place">
-								    <option>Select Any One:</option>
-								    <option>---------------</option>
-									<option>Dwarka</option>
-									<option>Delhi Cantonment</option>					
-									<option>Greater Kailash</option>
-									<option>Janak Place</option>
-									<option>Karol Bagh</option>
-									<option>Model Town</option>
-									<option>New Delhi</option>
-									<option>Pitam Pura</option>
-									<option>Rohini</option>
-									<option>Shahdara</option>
-									<option>Vasant Kunj</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="saddress">Shipping Address</label>
-								<input type="text" class="form-control" name="saddress">
-							</div>
-							<div class="form-group">
-								<label for="paddress">Permanent Address</label>
-								<input type="text" class="form-control" name="paddress">
-							</div>
-							<div class="form-group">
-							    <label for="bname">Bank:</label>
-							    <select class="form-control" name="bname">
-							        <option>Select Any One:</option>
-							        <option>---------------</option>
-							    	<option>HDFC</option>
-							    	<option>ICICI</option>
-							    	<option>SBI</option>
-							    	<option>Bank Of Baroda</option>
-							    	<option>IndusInd Bank</option>
-							    </select> 
-							</div>
-							<div class="form-group">
-							    <label for="ctype">Card Type</label>
-							    <select class="form-control" name="ctype">
-							        <option>Select Any One:</option>
-							        <option>---------------</option>
-							    	<option>Master Card</option>
-							    	<option>Maestro</option>
-							    	<option>Visa</option>
-							    </select>
-							</div>
-							<div class="form-group">
-								<label for="cno">Card Number</label>
-								<input type="number" max="16" class="form-control" name="cno">
+							    <label for="password">Password</label>
+							    <input type="password" class="form-control" name="password">
 							</div>
 							<div class="row">
 							<div class="col-md-1"></div>
@@ -171,11 +165,50 @@ h4 {
 	</div>
 </div>
 </div>
-<hr>
-<div class="container">
+
+<!-- <div class="container">
    <footer align="right">
       <p><font color="#555555" size="5">Email us at: admin@mycorp.com | Contact No.: 1800 3000 300 | &copy; MyCorp 2016, Inc.</font></p>
     </footer>
+  </div> -->
+  
+  
+     <!--  <footer class="footer"> -->
+   <%--    <div class="row footer">
+       <div class="col-md-2"></div>
+        <div class="col-md-2">
+        <h3>&copy;MyCorp ShopCart Inc.</h3>
+        </div>
+      <div class="col-md-4">
+       Follow Us On:
+       <div>
+          <a href="https://www.facebook.com/Axel1998Blaze" target="_blank"><img src="${z}/facebook-1024-black.png" height="50px" width="50px" class="img-responsive" ></a>
+          <a href="https://twitter.com/deeepanshu2105" target="_blank"><img src="${z}/twitter-512.png" height="45px" class="img-responsive" width=45px"></a>
+          <a href="https://www.instagram.com/deeepanshujain/" target="_blank"><img src="${z}/instagram-4096-black.png" height="50px" class="img-responsive" width="50px"></a>
+     </div>
+        </div> --%>
+        <div class="container-fluid footer">
+  <div class="row">
+   <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+     <h1>MyCorp Inc.</h1>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+     <a class="thumbnail" href="#">
+     <img class="img-responsive"  height="50px" width="50px" src="${z}/facebook-1024-black.png" alt="car5"></a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+     <a class="thumbnail" href="/ShoppingCart/resources/img/car5.jpg">
+     <img class="img-responsive"  height="50px" width="50px" src="${z}/twitter-512.png" alt="car6"></a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+     <a class="thumbnail" href="/ShoppingCart/resources/img/car6.jpg">
+     <img class="img-responsive"  height="50px" width="50px" src="${z}/instagram-4096-black.png" alt="car7"></a>
+    </div>
+   
   </div>
+</div>
+       </div>
+    <!-- </footer> -->
+  
 </body>
 </html>

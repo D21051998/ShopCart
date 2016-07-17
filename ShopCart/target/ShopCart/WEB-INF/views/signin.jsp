@@ -92,7 +92,18 @@ body {
 			<label for="inputPassword" class="sr-only">Password</label>
 			<input type="password" id="inputPassword" name="password"
 				class="form-control" placeholder="Password" required>
-
+		    <div class="radio text-center">
+		      <label>
+		       <input type="radio" name="isAdmin" checked id="isAdmin" value="0" />
+		       Customer
+		      </label>&nbsp;
+		    <!-- </div>
+		    <div class="radio"> -->
+		      <label>
+		       <input type="radio" name="isAdmin" id="isAdmin" value="1" />
+		       Admin
+		      </label>
+		    </div>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
 				Sign In <span class="glyphicon glyphicon-user"></span>
 			</button>

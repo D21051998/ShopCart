@@ -8,15 +8,19 @@
 	http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/isValidUser" access="hasRole('ROLE_ADMIN')"/>
-		<form-login default-target-url="/adminPage" />
-		<logout logout-success-url="/ShopCart/"/>
+		<intercept-url pattern="/adminPage" access="hasRole('ROLE_ADMIN')"/>
+		
+		<form-login login-page="/signin"  default-target-url="/adminPage" 
+		authentication-failure-url="/loginError" login-processing-url="/perform_login"/>
+		<!-- <logout logout-success-url="/ShopCart/"/> -->
+		
 	</http>
 	<authentication-manager>
 	  <authentication-provider>
-	    <user-service>
-		<user name="admin" password="admin" authorities="ROLE_ADMIN" />
-	    </user-service>
+	    <jdbc-user-service 
+	    data-source-ref="myDataSource" 
+	    users-by-username-query="select username, password, enabled from user where username=?"
+	    authorities-by-username-query="select username, role from user where username=?"/>
 	  </authentication-provider>
 	</authentication-manager>
 </beans:beans>

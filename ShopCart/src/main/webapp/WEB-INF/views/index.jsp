@@ -140,7 +140,8 @@ h3, h4 {
 						Sign Up</a></li>
 				<li><a href="signin"><span
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>
-
+			    <li><a href="adminPage"><span
+						class="glyphicon glyphicon-log-in"></span> Admin Page</a></li>
 			</ul>
 		</div>
 	</div>
@@ -290,9 +291,6 @@ h3, h4 {
 			</div>
 
 			<div class="col-md-4">
-
-
-
 				<h3>
 					<b>Ubisoft</b>
 				</h3>
@@ -306,6 +304,8 @@ h3, h4 {
 
 		</div>
 	</font>
+	
+	<a href="payment">Click Me:</a>
 	<hr>
 	
 	<footer align="right">
