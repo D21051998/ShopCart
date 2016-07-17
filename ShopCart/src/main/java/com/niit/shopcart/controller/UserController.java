@@ -48,7 +48,7 @@ public class UserController {
 	public String showAdmin(Principal px, ModelMap model){
 		model.addAttribute("user", new User());
 		System.out.println(px.getName());
-		model.addAttribute("userDetail",this.userImpl.getByName(px.getName()).getName());
+		model.addAttribute("userDetail",this.userImpl.getByName(px.getName()));
 		return "adminPage";
 	}
 

@@ -165,11 +165,9 @@ body {
 		<div class="container text-center">
 		<h1>Admin Home</h1>
 
-		
-		<%-- <c:if test="${empty userDetail}">No DATA</c:if>
-		<c:if test="${!empty userDetail}">Got DATA</c:if>
- --%>
-		<h2><center>Welcome User:${userDetail}</center></h2>
+		<h2><center>Welcome User:${userDetail.name}</center></h2>
+		<h2>${userDetail.email}</h2>
+		<h2>${userDetail.contact}</h2>
 		</div>
 		</div>
 		</div>

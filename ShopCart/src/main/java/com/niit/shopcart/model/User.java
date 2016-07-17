@@ -14,9 +14,13 @@ public class User {
 	private String username;
 	private String name;
 	private String password;
+	private String email;
 	private boolean isAdmin;
 	private String role;
 	private boolean enabled;
+	private String contact;
+	
+	
 	public String getUsername() {
 		return username;
 	}
@@ -59,11 +63,28 @@ public class User {
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+
+	public String getContact() {
+		return contact;
+	}
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", name=" + name + ", password=" + password + ", isAdmin="
-				+ isAdmin + ", role=" + role + ", enabled=" + enabled + "]";
+		return "User [id=" + id + ", username=" + username + ", name=" + name + ", password=" + password + ", email="
+				+ email + ", isAdmin=" + isAdmin + ", role=" + role + ", enabled=" + enabled + ", contact=" + contact
+				+ "]";
 	}
+	
 	
 	
 }

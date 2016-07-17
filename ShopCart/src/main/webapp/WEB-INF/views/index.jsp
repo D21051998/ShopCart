@@ -110,13 +110,13 @@ h3, h4 {
 					class="icon-bar"></span>
 			</button>
 			<!-- <img class="img-resopnsive" src="${z}/Retail-eCommerce-Icon-300x300.png" width="50" hight="50" alt="" />-->
-			<a class="navbar-brand" href="/ShopCart/"><font color="black"><strong>MyCorp
+			<a class="navbar-brand" href="/ShopCart/home"><font color="black"><strong>MyCorp
 						Inc.</strong></font></a>
 		</div>
 
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="/ShopCart/" target="_self">Home</a></li>
+				<li class="active"><a href="/ShopCart/home" target="_self">Home</a></li>
 				<li class="dropdown"><a href="#" role="button" class="dropdown-toggle"
 					data-toggle="dropdown" target="_self">Products<span
 						class="caret"></span></a>
@@ -136,12 +136,24 @@ h3, h4 {
 
 			</ul></li>
 			<ul class="nav navbar-nav navbar-right">
+			<c:if test="${empty userDetail}">
 				<li><a href="signup"><span class="glyphicon glyphicon-user"></span>
 						Sign Up</a></li>
 				<li><a href="signin"><span
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>
-			    <li><a href="adminPage"><span
-						class="glyphicon glyphicon-log-in"></span> Admin Page</a></li>
+			</c:if>
+			<c:if test="${!empty userDetail}">
+			    <li><a href="#"><span
+						class="glyphicon glyphicon-user"></span>&nbsp;${userDetail.name}</a></li>
+			    <c:if test="${userDetail.role == 'ROLE_USER'}">
+			       <li><a href="#"><span
+						class="glyphicon glyphicon-user"></span>&nbsp;Login Type: User</a></li>
+			    </c:if>
+			    <c:if test="${userDetail.role == 'ROLE_ADMIN'}">
+			       <li><a href="#"><span
+						class="glyphicon glyphicon-user"></span>&nbsp;Login Type: ADMIN</a></li>
+			    </c:if>
+			</c:if>
 			</ul>
 		</div>
 	</div>

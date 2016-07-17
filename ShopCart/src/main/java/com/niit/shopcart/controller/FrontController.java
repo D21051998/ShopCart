@@ -1,12 +1,17 @@
 package com.niit.shopcart.controller;
 
+import java.security.Principal;
+
+import javax.management.AttributeValueExp;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.niit.shopcart.dao.CategoryImpl;
-import com.niit.shopcart.model.Category;
+import com.niit.shopcart.dao.*;
+import com.niit.shopcart.model.*;
 
 @Controller
 public class FrontController {
@@ -14,12 +19,33 @@ public class FrontController {
 	@Autowired
 	private CategoryImpl categoryImpl;
 	
+	@Autowired
+	private UserImpl userImpl;
+	
 	@RequestMapping("/")
 	public ModelAndView showIndex(){
 		ModelAndView mv = new ModelAndView("/index");
 		mv.addObject("category", new Category());
 		mv.addObject("categoryList",this.categoryImpl.list());
 		return mv;
+	}
+	
+/*	@RequestMapping("/home")
+	public ModelAndView showHome(){
+		ModelAndView mv = new ModelAndView("/index");
+		mv.addObject("category", new Category());
+		mv.addObject("categoryList",this.categoryImpl.list());
+		
+		return mv;
+	}*/
+	
+	@RequestMapping("/home")
+	public String showHome(Principal px, ModelMap model){
+		model.addAttribute("category", new Category());
+		model.addAttribute("categoryList", this.categoryImpl.list());
+		model.addAttribute("user", new User());
+		model.addAttribute("userDetail", this.userImpl.getByName(px.getName()));
+		return "index";
 	}
 	
 	@RequestMapping("/signin")
