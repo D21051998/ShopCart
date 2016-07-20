@@ -6,8 +6,11 @@ import javax.management.AttributeValueExp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shopcart.dao.*;
@@ -21,6 +24,7 @@ public class FrontController {
 	
 	@Autowired
 	private UserImpl userImpl;
+
 	
 	@RequestMapping("/")
 	public ModelAndView showIndex(){
@@ -54,11 +58,18 @@ public class FrontController {
 		return mv;
 	}
 	
+	
+	
+	
 	@RequestMapping("/signup")
 	public ModelAndView showSignup(){
 		ModelAndView mv = new ModelAndView("/signup");
+		mv.addObject("user", new User());
+		mv.addObject("userDetails",this.categoryImpl.list());
 		return mv;
 	}
+	
+	
 	@RequestMapping("/about")
 	public ModelAndView showAbout(){
 		ModelAndView mv = new ModelAndView("/about");
@@ -85,4 +96,17 @@ public class FrontController {
 	public String payMe(){
 		return "payment";
 	}
+	
+	@RequestMapping(value="/user/add",method=RequestMethod.POST)
+	public ModelAndView addUser(@ModelAttribute("user") User user){
+		user.setEnabled(true);
+		user.setRole("ROLE_USER");
+		int accNumber =userImpl.list().size() + 1;
+		user.setId("UA"+String.format("%03d", accNumber));
+		System.out.println(user);
+		userImpl.saveOrUpadate(user);
+		ModelAndView mc = new ModelAndView("/signin");
+		return mc;
+	}
+		
 }

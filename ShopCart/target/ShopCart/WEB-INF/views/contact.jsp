@@ -23,6 +23,11 @@
 	line-height: 1.8;
 	color: #f5f6f7;
 }
+#map {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+      }
 
 .margin {
 	margin-bottom: 45px;
@@ -52,6 +57,48 @@
 	letter-spacing: 2px;
 }
 
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+body>.container {
+	padding: 60px 15px 0;
+}
+
+.container .text-muted {
+	margin: 20px 0;
+}
+
+.footer>.container {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+code {
+	font-size: 80%;
+}
+
+
 .bg-1 {
 	background-color: #1abc9c; /* Green */
 	color: #ffffff;
@@ -74,6 +121,7 @@
 	-ms-user-select: none;
 	user-select: none;
 }
+
 
 h2 {
 	letter-spacing: 3px;
@@ -99,6 +147,17 @@ p {
 	color: #000;
 }
 </style>
+<script>
+function initialize() {
+	  var mapProp = {
+	    center:new google.maps.LatLng(28.599875,77.081362),
+	    zoom:13,
+	    mapTypeId:google.maps.MapTypeId.ROADMAP
+	  };
+	  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 </head>
 
 
@@ -127,30 +186,41 @@ p {
 </div>
 </nav>
 <div class="container">
+<div class="row">
+<div class="col-md-6">
 	<h3>Project Owner / Developer:</h3>
 	<p><font size="6"><strong>Deepanshu Jain</strong></font></p>
 	<h4>&nbsp;Contact No:</h4>
 	<p><strong>+91 8527 062062</strong></p>
 	<h4>&nbsp;E Mail:</h4>
 	<p><strong>deepanshujain1234@live.com</strong></p>
-	<h3>Address:</h3>
-	<p><font size="6"><strong>
-		MyCorp ShopCart,<br> Localhost &#128521;
-    </strong></font></p>
+	
 	<h3>Runtime:</h3>
 	<p><font size="6"><strong>Apache Tomcat v8</strong></font></p>
 	<h3>Enviroment:</h3>
 	<p><font size="6"><strong>Eclipse</strong></font></p>
 	<h3>Framework:</h3>
-	<p><font size="6"><strong>Spring MVC (Former Known As Interface 21)</strong></font></p>
+	<p><font size="6"><strong>Spring MVC</strong></font></p>
 <br>
-<hr>
-<footer align="right">
-		<p>
-			<font size="4" color="#555555">Email us at: admin@mycorp.com | Contact
-				No.: 1800 3000 300 | &copy; MyCorp 2016, Inc.</font>
-		</p>
-	</footer>
 </div>
+<div class="col-md-6">
+<h2>See Me Here:</h2>
+
+ <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.0004303406936!2d77.08257191852417!3d28.599763902476568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3667498d4c09637f!2sMahavir+Enclave!5e0!3m2!1sen!2sin!4v1468773772123" width="700" height="550" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div></div>
+</div>
+<footer class="footer">
+	<div class="container">
+	<div class="row">
+  <div class="col-md-6"><h3>&copy; MyCorp ShopCart Inc.</h3></div>
+  <div align="right" class="col-md-6">
+          &nbsp;<a href="https://www.facebook.com/Axel1998Blaze" target="_blank"><img src="${z}/facebook-1024-black.png" height="50px" width="50px" class="img-rounded" ></a>
+          &nbsp;<a href="https://twitter.com/deeepanshu2105" target="_blank"><img src="${z}/twitter-512.png" height="45px" class="img-rounded" width=45px"></a>
+          &nbsp;<a href="https://www.instagram.com/deeepanshujain/" target="_blank"><img src="${z}/instagram-4096-black.png" height="50px" class="img-rounded" width="50px"></a>
+  </p></div>
+</div></div>
+
+</footer>
+
 </body>
 </html>

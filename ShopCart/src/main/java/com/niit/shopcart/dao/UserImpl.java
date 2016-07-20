@@ -3,9 +3,12 @@ package com.niit.shopcart.dao;
 import java.security.Principal;
 import java.util.List;
 
-
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.tuple.entity.EntityMetamodel.GenerationStrategyPair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +22,9 @@ public class UserImpl implements UserDao{
 	private SessionFactory sessionFactory;
 	
 	
+	public Session getSession(){
+		return sessionFactory.openSession();
+	}
 	
 	@Transactional
 	public boolean isValidUser(String id, String password, boolean isAdmin) {
@@ -34,6 +40,13 @@ public class UserImpl implements UserDao{
 		}
 		return false;
 	}
+	
+	@Transactional
+	public List<User> list(){
+		@SuppressWarnings("unchecked")
+		List<User> listUser = (List<User>) sessionFactory.openSession().createCriteria(User.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return listUser;
+	}
 
 	@Transactional
 	public User getByName(String name){
@@ -48,5 +61,12 @@ public class UserImpl implements UserDao{
 	    return null;
 	}
 	
-	 
+	@Transactional
+	public void saveOrUpadate(User user){
+		/*sessionFactory.openSession().saveOrUpdate(user);*/
+		Session session = getSession();
+		Transaction tx = session.beginTransaction();
+		session.save(user);
+		tx.commit();
+	}
 }

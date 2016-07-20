@@ -118,12 +118,12 @@ h3, h4 {
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="/ShopCart/home" target="_self">Home</a></li>
 				<li class="dropdown"><a href="#" role="button" class="dropdown-toggle"
-					data-toggle="dropdown" target="_self">Products<span
+					data-toggle="dropdown" target="_self">Inventory<span
 						class="caret"></span></a>
 				<ul class="dropdown-menu text-center">
 				<li><font color="#000000">&nbsp;Choose From:</font></li>
 				<li class="divider" role="seperator"></li>
-				<li><a href="<c:url value='product/view/all'/> "><font color="#555555">All&nbsp;<span class="glyphicon glyphicon-menu-right"></span></font></a></li>
+				<li><a href="<c:url value='showproduct/view/all'/> "><font color="#555555">All&nbsp;<span class="glyphicon glyphicon-menu-right"></span></font></a></li>
 				<li class="divider" role="seperator"></li>
 					<c:forEach items="${categoryList}" var="category">
                        
@@ -150,7 +150,7 @@ h3, h4 {
 						class="glyphicon glyphicon-user"></span>&nbsp;Login Type: User</a></li>
 			    </c:if>
 			    <c:if test="${userDetail.role == 'ROLE_ADMIN'}">
-			       <li><a href="#"><span
+			       <li><a href="adminPage"><span
 						class="glyphicon glyphicon-user"></span>&nbsp;Login Type: ADMIN</a></li>
 			    </c:if>
 			</c:if>
@@ -306,7 +306,7 @@ h3, h4 {
 				<h3>
 					<b>Ubisoft</b>
 				</h3>
-				<a href="product/view/all"> <img class="img-thumbnail" src="${z}/wg2.jpg"
+				<a href="showproduct/view/all"> <img class="img-thumbnail" src="${z}/wg2.jpg"
 					alt="Battlefield 4" width="300" height="400" /></a>
 				<h5>
 					<strong>WatchDogs 2, Assassins Creed, Far Cry, and more.</strong>
@@ -316,8 +316,12 @@ h3, h4 {
 
 		</div>
 	</font>
+	<br>
+	<h2>Latest Releases</h2>
+	<div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GE2BkLqMef4?autoplay=1"></iframe>
+    </div>
 	
-	<a href="payment">Click Me:</a>
 	<hr>
 	
 	<footer align="right">

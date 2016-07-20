@@ -1,6 +1,8 @@
 package com.niit.shopcart.model;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -9,7 +11,6 @@ import org.springframework.stereotype.Component;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
 	private String id;
 	private String username;
 	private String name;

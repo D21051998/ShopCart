@@ -158,17 +158,19 @@ body {
 				<li><a href="product">Products</a></li>
 				<li><a href="category">Category</a></li>
 				<li><a href="supplier">Supplier</a></li>
-				<li><a href="/ShopCart/">Site Home</a></li>
+				<li><a href="/ShopCart/home">Site Home</a></li>
 			</ul>
 		</div>
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
 		<div class="container text-center">
 		<h1>Admin Home</h1>
+
+		<h2><center>Welcome User:${userDetail.name}</center></h2>
+		<h2>${userDetail.email}</h2>
+		<h2>${userDetail.contact}</h2>
 		</div>
 		</div>
 		</div>
-		
- 
  
 </body>
 </html>

@@ -212,7 +212,7 @@ body {
 									</c:when>
 									<c:otherwise>
 										<td><form:input class="form-control"
-												style="width:250px !important;" path="id" patttern=".{6,7}"
+												style="width:250px !important;" path="id" patttern=".{6,7}" 
 												required="true" title="id should contains 6 to 7 characters" /></td>
 												<td><form:errors path="id" cssClass="error" /></td>
 									</c:otherwise>

@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page isELIgnored="false"%>
 
@@ -146,25 +147,31 @@ h2 {
 								<h2>
 									<strong> Fill In Your Details. </strong>
 								</h2>
-								<form:form action="register" method="post">
+								<c:url var="addAction" value="/user/add"></c:url>
+								<form:form action="${addAction}" commandName="user">
 									<div class="form-group">
-										<label for="fName">Full Name</label> <input type="text"
+										<form:label path="name"> <spring:message text="Name" /></form:label>
+										<input type="text" path="name"
 											class="form-control" name="name">
 									</div>
 									<div class="form-group">
-										<label for="username">User Name</label> <input type="text"
+										<form:label path="username"> <spring:message text="UserName" /></form:label>
+										<input type="text" path="username"
 											class="form-control" name="username">
 									</div>
 									<div class="form-group">
-										<label for="password">Password</label> <input type="password"
+										<form:label path="password"> <spring:message text="Password" /></form:label>
+										<input type="password" path="password"
 											class="form-control" name="password">
 									</div>
 									<div class="form-group">
-										<label for="email">E Mail ID</label> <input type="text"
+										<form:label path="email"> <spring:message text="E Mail" /></form:label>
+										<input type="text" path="email"
 											class="form-control" name="email">
 									</div>
 									<div class="form-group">
-										<label for="contact">Contact Number</label> <input type="text"
+										<form:label path="contact"> <spring:message text="Contact" /></form:label>
+										<input type="text" path="contact"
 											class="form-control" name="contact">
 									</div>
 									<div class="row">
