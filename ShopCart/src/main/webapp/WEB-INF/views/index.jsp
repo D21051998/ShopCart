@@ -127,7 +127,7 @@ h3, h4 {
 				<li class="divider" role="seperator"></li>
 					<c:forEach items="${categoryList}" var="category">
                        
-						<li><a href="<c:url value='category/view/${category.name}' />"><font color="#555555">${category.name}&nbsp;<span class="glyphicon glyphicon-menu-right"></span></font></a></li>
+						<li><a href="<c:url value='showCategory/view/${category.name}' />"><font color="#555555">${category.name}&nbsp;<span class="glyphicon glyphicon-menu-right"></span></font></a></li>
 
 						</c:forEach>
 				</ul>
@@ -146,13 +146,15 @@ h3, h4 {
 			    <li><a href="#"><span
 						class="glyphicon glyphicon-user"></span>&nbsp;${userDetail.name}</a></li>
 			    <c:if test="${userDetail.role == 'ROLE_USER'}">
-			       <li><a href="#"><span
-						class="glyphicon glyphicon-user"></span>&nbsp;Login Type: User</a></li>
+			       <li><a href="#">&nbsp;Cart(0)</a></li>
 			    </c:if>
+			    
 			    <c:if test="${userDetail.role == 'ROLE_ADMIN'}">
 			       <li><a href="adminPage"><span
-						class="glyphicon glyphicon-user"></span>&nbsp;Login Type: ADMIN</a></li>
+						class="glyphicon glyphicon-wrench"></span>&nbsp;Admin Panel</a></li>
 			    </c:if>
+			    <li><a href="<c:url value="/logout" />"><span
+						class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
 			</c:if>
 			</ul>
 		</div>

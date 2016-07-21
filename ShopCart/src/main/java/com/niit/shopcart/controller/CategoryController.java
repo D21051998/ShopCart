@@ -66,7 +66,7 @@ public class CategoryController {
 		return "category";
 	}
 	
-	@RequestMapping(value="category/view/{name}", method=RequestMethod.GET)
+	@RequestMapping(value="showCategory/view/{name}", method=RequestMethod.GET)
 	public String showGames(@PathVariable("name") String name, ModelMap model){
 		System.out.println("Category View");
 		model.addAttribute("category", new Category());

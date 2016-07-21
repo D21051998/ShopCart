@@ -276,6 +276,15 @@ body {
 								</div>
 							</tr>
 							<tr>
+								<div class="form-group">
+								<td><form:label path="url">
+										<spring:message text="Video URL" />
+									</form:label></td>
+								<td><form:input path="url" class="form-control"
+										style="width:250px !important;" required="true" /></td>
+								</div>
+							</tr>
+							<tr>
 								<td colspan="2"><c:if test="${!empty product.name}">
 										<input type="submit" class="btn btn-default"
 											value="<spring:message text="Edit Product"/>"
@@ -299,6 +308,7 @@ body {
 									<th>Product Name</th>
 									<th>Product Description</th>
 									<th>Price</th>
+									<th>Video URL</th>
 									<th>Product Category</th>
 									<th>Product Supplier</th>
 									<th>Edit</th>
@@ -312,6 +322,7 @@ body {
 										<td>${product.name}</td>
 										<td>${product.description}</td>
 										<td>${product.price}</td>
+										<td>${product.url}</td>
 										<td>${product.category.name}</td>
 										<td>${product.supplier.name}</td>
 										<td><a

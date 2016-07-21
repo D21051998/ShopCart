@@ -3,8 +3,13 @@ package com.niit.shopcart.controller;
 import java.security.Principal;
 
 import javax.management.AttributeValueExp;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -27,21 +32,21 @@ public class FrontController {
 
 	
 	@RequestMapping("/")
-	public ModelAndView showIndex(){
+	public ModelAndView showIndex(Principal px){
 		ModelAndView mv = new ModelAndView("/index");
-		mv.addObject("category", new Category());
-		mv.addObject("categoryList",this.categoryImpl.list());
-		return mv;
+		try {
+			mv.addObject("category", new Category());
+			mv.addObject("categoryList",this.categoryImpl.list());
+			mv.addObject("user", new User());
+			mv.addObject("userDetail", this.userImpl.getByName(px.getName()));
+			return mv;
+		} catch (NullPointerException e) {
+			mv.addObject("category", new Category());
+			mv.addObject("categoryList",this.categoryImpl.list());
+			return mv;
+		}
 	}
 	
-/*	@RequestMapping("/home")
-	public ModelAndView showHome(){
-		ModelAndView mv = new ModelAndView("/index");
-		mv.addObject("category", new Category());
-		mv.addObject("categoryList",this.categoryImpl.list());
-		
-		return mv;
-	}*/
 	
 	@RequestMapping("/home")
 	public String showHome(Principal px, ModelMap model){
@@ -58,6 +63,14 @@ public class FrontController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logMeOut(HttpServletRequest request, HttpServletResponse response){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if(auth!=null){
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		return "redirect:/signin";
+	}
 	
 	
 	

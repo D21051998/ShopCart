@@ -84,7 +84,7 @@ body {
 	<div class="container">
 
 		<form:form class="form-signin" action="perform_login" method="post">
-			<h2 class="form-signin-heading text-center">MyCorp Login</h2>
+			<h2 class="form-signin-heading text-center"><a href="/ShopCart/">MyCorp</a> Login</h2>
 
 			<label for="inputText" class="sr-only">User Name</label>
 			<input type="text" id="inputText" name="username" class="form-control"
@@ -92,28 +92,14 @@ body {
 			<label for="inputPassword" class="sr-only">Password</label>
 			<input type="password" id="inputPassword" name="password"
 				class="form-control" placeholder="Password" required>
-		    <!-- <div class="radio text-center">
-		      <label>
-		       <input type="radio" name="isAdmin" checked id="isAdmin" value="0" />
-		       Customer
-		      </label>&nbsp;
-		    </div>
-		    <div class="radio">
-		      <label>
-		       <input type="radio" name="isAdmin" id="isAdmin" value="1" />
-		       Admin
-		      </label>
-		    </div> -->
+		   <h4>Create an account <a href="/ShopCart/signup">here.</a></h4>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
 				Sign In <span class="glyphicon glyphicon-user"></span>
 			</button>
 		</form:form>
 
 	</div>
-	<!-- /container -->
 
 
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

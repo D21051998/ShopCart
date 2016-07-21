@@ -29,6 +29,10 @@ public class Product {
 	
 	@NotNull
 	private String supplier_id;
+	
+	private String url;
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -86,12 +90,22 @@ public class Product {
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
+	
+	
+	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
-				+ ", category_id=" + category_id + ", supplier_id=" + supplier_id + ", category=" + category
-				+ ", supplier=" + supplier + "]";
+				+ ", category_id=" + category_id + ", supplier_id=" + supplier_id + ", url=" + url + ", category="
+				+ category + ", supplier=" + supplier + "]";
 	}
+		
 	
 	
 }
